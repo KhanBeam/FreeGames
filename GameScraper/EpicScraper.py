@@ -12,8 +12,7 @@ options = Options()
 options.headless = False
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
-def game_scraper():
-    url = "E-P-I-C-HomeLink"
+def game_scraper(url):
     driver.get(url)
     element = driver.find_element(By.XPATH, '//*[@id="dieselReactWrapper"]/div/div/div[4]/main/div[2]/div/div/div/div[2]/div[2]/span[6]/div/div/div[2]/div[1]/div/div[2]/div[1]/a/h5/div/div')
     driver.execute_script("arguments[0].scrollIntoView();",element)
@@ -41,5 +40,6 @@ def game_scraper():
         game_link_element2 = driver.find_element(By.XPATH, '//*[@id="dieselReactWrapper"]/div/div/div[4]/main/div[2]/div/div/div/div[2]/div[2]/span[7]/div/div/section/div/div[2]/div/div/div/a')
         game_link2 = game_link_element2.get_attribute("href")
         
-    
-game_scraper()
+
+url = "Enter E-P-I-C Homepage Link"
+game_scraper(url)
